@@ -1,3 +1,5 @@
+"""This python file searches the meaning of the word from the data.json file and return it to views.py  """
+
 import os
 import json
 from difflib import get_close_matches
