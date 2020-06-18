@@ -22,4 +22,5 @@ urlpatterns = [
     path('news/', include('news.urls')),
     path('EnglishDict/', include('EnglishDict.urls')),
     path('', views.index, name = 'home'),
+    path('register/', include('users.urls'))
 ]

@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-  <title>Dictionary!</title>
+  <title>User registration!</title>
 </head>
 
 <body>
@@ -36,44 +36,36 @@
       </ul>
     </div>
   </nav>
-
-
-  <div class="container my-2">
-    <h1>English Dictionary</h1>
-    <form method="post">
-      {% csrf_token %}
-      <form>
-        <div class="form-group my-4">
-          <label for="exampleFormControlTextarea1">Search Word:</label>
-          {{ meaningform.word }}
+  <div class="container my-4">
+{% load crispy_forms_tags %}
+      <div class="content-section">
+          <form method="POST">
+              {% csrf_token %}
+              <fieldset class="form-group" >
+                  
+                  <legend class="border-bottom mb-4">Join Today</legend>
+                  {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                </div>
+                <div class="border-top pt-3">
+                    <small class="text-muted">Already have an account? <a class="ml-2" href="#">Sign In</a></small>
+                </div>
+                
+            </form>
         </div>
-        <button type="submit" class="btn btn-primary">Search</button>
-      </form>
-    </form>
-    <label for="exampleFormControlTextarea1" class="my-4">Definition/Meaning:</label>
-    <!-- Displays the meaning from the data file inside the text area  -->
-    <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="10">
-
-        {% if response_list %}
-        {% for meaning in response_list %}
-        {{ meaning }}
-        {% endfor %}
-        {% endif %}
-        {% if response %}
-        {{ response }}
-        {% endif %}
-      </textarea>
-  </div>
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    </div>
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
     crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
 </body>
